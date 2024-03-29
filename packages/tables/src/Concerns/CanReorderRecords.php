@@ -18,7 +18,7 @@ trait CanReorderRecords
      * @param  array  $orderAndDraggedId  An associative array containing the new order of item IDs ('order')
      *                                    and the ID of the dragged item ('draggedId').
      */
-    public function reorderTableWithDragged($orderAndDraggedId): void
+    /* public function reorderTableWithDragged($orderAndDraggedId): void
     {
         $order = $orderAndDraggedId['order'];
         // The $draggedId is intended for use in overridden methods where specific logic
@@ -27,12 +27,12 @@ trait CanReorderRecords
 
         // Proceed with the reordering logic using the provided $order.
         $this->reorderTable($order);
-    }
+    } */
 
     /**
      * @param  array<int | string>  $order
      */
-    public function reorderTable(array $order): void
+    public function reorderTable(array $order, $draggedRecordKey = null): void
     {
         if (! $this->getTable()->isReorderable()) {
             return;
