@@ -26,7 +26,6 @@
     <tbody
         @if ($reorderable)
             x-on:end.stop="
-                console.log($event);
                 $wire.reorderTable(
                     $event.target.sortable.toArray(),
                     $event.item.getAttribute('x-sortable-item'),
