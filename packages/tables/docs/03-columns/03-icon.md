@@ -100,6 +100,19 @@ IconColumn::make('is_featured')
 
 <AutoScreenshot name="tables/columns/icon/boolean-color" alt="Icon column to display a boolean with custom colors" version="3.x" />
 
+## Customizing the boolean state
+
+You may need to display a boolean icon based on conditions that are not directly represented by a boolean field in the database. You can use `state()` to customize the boolean state:
+
+```php
+use Filament\Tables\Columns\IconColumn;
+
+IconColumn::make('email_verified_at')
+    ->label('Email Verified)
+    ->boolean()
+    ->state(fn (Model $record): bool => (bool) $record->email_verified_at)
+```
+
 ## Wrapping multiple icons
 
 When displaying multiple icons, they can be set to wrap if they can't fit on one line, using `wrap()`:
